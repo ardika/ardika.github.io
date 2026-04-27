@@ -374,6 +374,8 @@ button {
 .hero-line {
   display: block;
   text-align: center;
+  text-wrap: balance;
+  max-width: 100%;
 }
 
 .grad {
@@ -1006,8 +1008,11 @@ button {
 }
 
 @media (max-width: 720px) {
+  .container { padding: 0 18px; }
+  .nav-inner { padding: 14px 4px; }
   .hero { padding: 80px 0 80px; }
   .section { padding: 80px 0; }
+  .hero-title { font-size: clamp(1.9rem, 7.5vw, 3rem); }
   .about-grid { grid-template-columns: 1fr; gap: 32px; }
   .profile-card { position: static; }
   .hero-stats { grid-template-columns: repeat(2, 1fr); padding: 18px; gap: 16px; }
