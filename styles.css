@@ -389,11 +389,18 @@ button {
   color: transparent;
 }
 .typing-line {
-  gap: 6px;
+  /* Fixed-size placeholder: never shrinks below 2 lines, never wider than 70vw,
+     so layout stays put as phrases cycle through different lengths. */
+  display: block;
+  width: 100%;
+  max-width: 70vw;
+  min-height: 2.3em;
+  margin: 0 auto;
+  text-align: center;
+  text-wrap: balance;
 }
 .typing-text {
   display: inline;
-  white-space: nowrap;
 }
 .type-cursor {
   display: inline-block;
