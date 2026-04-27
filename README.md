@@ -1,12 +1,12 @@
 # ardika.github.io
 
-Personal GitHub Pages site. Each project lives in its own subdirectory
-and is served at `https://ardika.github.io/<project>/`.
+Personal GitHub Pages site for **Nurkholish A.** — Software & Embedded Developer.
 
-| Path                    | Live URL                                      |
-| ----------------------- | --------------------------------------------- |
-| `/tuwaiqtech.ai/`       | https://ardika.github.io/tuwaiqtech.ai/       |
+| Path              | Live URL                                |
+| ----------------- | --------------------------------------- |
+| `/`               | https://ardika.github.io/               |
+| `/tuwaiqtech.ai/` | https://ardika.github.io/tuwaiqtech.ai/ |
 
-The root (`/`) renders a tiny index that links into each project. No
-build step, no framework — GitHub Pages serves the static files from
-`main` automatically.
+Root serves the personal landing page (`index.html` + `styles.css` + `script.js`).
+Subdirectories serve project-specific pages. No build step — GitHub Pages serves
+the static files from `main` automatically.
