@@ -918,28 +918,6 @@ button {
 }
 .email-cta svg { width: 20px; height: 20px; color: var(--accent); }
 
-.phone-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 14px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  font-family: var(--font-mono);
-  font-size: 14px;
-  color: var(--muted);
-  letter-spacing: 0.02em;
-  transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
-}
-.phone-cta:hover {
-  color: var(--text);
-  border-color: var(--accent);
-  background: var(--surface-2);
-  transform: translateY(-1px);
-}
-.phone-cta svg { width: 16px; height: 16px; color: var(--accent); }
 
 .socials {
   display: flex;
