@@ -59,7 +59,7 @@
         </p>
         <h1 class="hero-title reveal">
           Hi, I'm <span class="grad">ardi</span>.<br />
-          I build software <span class="grad-2">from PCB to product</span>.
+          I build <span class="grad-2 typing-text" aria-live="polite"></span><span class="type-cursor" aria-hidden="true"></span>.
         </h1>
         <p class="hero-sub reveal">
           Software &amp; embedded developer with 7+ years shipping cross-platform desktop apps,
@@ -305,6 +305,96 @@
           </article>
 
           <article class="card project reveal">
+            <div class="project-cover" style="--c1:#10b981;--c2:#0d9488;">
+              <span class="project-emoji">🩺</span>
+            </div>
+            <div class="project-body">
+              <h3>PHI Sanitizer — Healthcare De-identification</h3>
+              <p class="muted small">Software for <strong>Glendor</strong> that automatically redacts protected health information from medical images, pathology reports, video, photos, and audio — fully on-prem, no manual templates. ML / NLP / OCR / image-processing pipelines handle multimodal medical data while keeping clinical research workflows fast and HIPAA-friendly.</p>
+              <div class="chips">
+                <span class="chip">ML / NLP</span>
+                <span class="chip">OCR</span>
+                <span class="chip">Image Processing</span>
+                <span class="chip">DICOM</span>
+                <span class="chip">On-Prem</span>
+                <span class="chip">HIPAA</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project reveal">
+            <div class="project-cover" style="--c1:#0891b2;--c2:#1e40af;">
+              <span class="project-emoji">🌡️</span>
+            </div>
+            <div class="project-body">
+              <h3>Q Horizons Mapping — Cold-Chain Telemetry</h3>
+              <p class="muted small">Management system, sensor telemetry pipeline, and data visualizations for <strong>Quality Horizons'</strong> Mapping Division (Saudi Arabia / GCC). Powers thermal-mapping studies for cold-chain logistics — pharmaceutical storage, temperature-controlled supply chain, and SFDA / WHO / GSDP compliance reporting.</p>
+              <div class="chips">
+                <span class="chip">Sensor Telemetry</span>
+                <span class="chip">Data Loggers</span>
+                <span class="chip">Web Dashboard</span>
+                <span class="chip">Thermal Mapping</span>
+                <span class="chip">Hanwell</span>
+                <span class="chip">SFDA / WHO / GSDP</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project reveal">
+            <div class="project-cover" style="--c1:#eab308;--c2:#dc2626;">
+              <span class="project-emoji">⚡</span>
+            </div>
+            <div class="project-body">
+              <h3>PLN — High-voltage Cubicle Wi-Fi Control</h3>
+              <p class="muted small">Embedded Wi-Fi controller for <strong>PLN</strong> (Indonesian state power utility) — replaces cabled HMI in electric substations to remove a real safety hazard near high-voltage gear. Custom 4-channel OPEN/CLOSE PCB, AVR firmware over Wi-Fi, web UI for substation operators.</p>
+              <div class="chips">
+                <span class="chip">Embedded C / C++</span>
+                <span class="chip">Arduino / AVR</span>
+                <span class="chip">Wi-Fi</span>
+                <span class="chip">Custom PCB</span>
+                <span class="chip">JavaScript</span>
+                <span class="chip">MCU Firmware</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project reveal">
+            <div class="project-cover" style="--c1:#f97316;--c2:#ec4899;">
+              <span class="project-emoji">🏃</span>
+            </div>
+            <div class="project-body">
+              <h3>Strider — IMU Running Activity Monitor</h3>
+              <p class="muted small">Foot-mounted device that records 3-axis accel, gyro, and magnetometer to SD card with millisecond precision (binary format), paired with a Linux desktop app showing live numerics, charts, gauges, and a 3D spatial-estimation display.</p>
+              <div class="chips">
+                <span class="chip">AVR Firmware</span>
+                <span class="chip">9-DoF IMU</span>
+                <span class="chip">C++</span>
+                <span class="chip">Linux Desktop</span>
+                <span class="chip">Real-time Charts</span>
+                <span class="chip">3D Visualization</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project reveal">
+            <div class="project-cover" style="--c1:#16a34a;--c2:#0891b2;">
+              <span class="project-emoji">🚗</span>
+            </div>
+            <div class="project-body">
+              <h3>Musaci — Vehicle GPS Tracker (Hardware + Android)</h3>
+              <p class="muted small">Compact GPS tracker with engine-stop relay, built around the SIM800L modem with GPRS → MQTT (AWS) data link. Paired Android app supervises multiple devices simultaneously with a Mapbox map view.</p>
+              <div class="chips">
+                <span class="chip">AVR Firmware</span>
+                <span class="chip">SIM800L / GPRS</span>
+                <span class="chip">MQTT</span>
+                <span class="chip">AWS</span>
+                <span class="chip">Android / Java</span>
+                <span class="chip">Mapbox</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project reveal">
             <div class="project-cover" style="--c1:#7c3aed;--c2:#06b6d4;">
               <span class="project-emoji">🌐</span>
             </div>
@@ -337,21 +427,6 @@
           </article>
 
           <article class="card project reveal">
-            <div class="project-cover" style="--c1:#f59e0b;--c2:#ef4444;">
-              <span class="project-emoji">🌡️</span>
-            </div>
-            <div class="project-body">
-              <h3>IoT Temperature &amp; Humidity Platform</h3>
-              <p class="muted small">End-to-end IoT solution: sensor firmware, MQTT transport, and a monitoring dashboard for environmental data.</p>
-              <div class="chips">
-                <span class="chip">ESP32</span>
-                <span class="chip">MQTT</span>
-                <span class="chip">IoT</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card project reveal">
             <div class="project-cover" style="--c1:#ec4899;--c2:#8b5cf6;">
               <span class="project-emoji">📡</span>
             </div>
@@ -371,27 +446,30 @@
               <span class="project-emoji">🛡️</span>
             </div>
             <div class="project-body">
-              <h3>Windows VPN Client Rebuild</h3>
-              <p class="muted small">Rebranded and re-compiled a native Windows VPN client from source — installer pipeline and full build instructions.</p>
+              <h3>Open Source App Rebuilding &amp; Rebranding</h3>
+              <p class="muted small">Take an open-source application from source code to a fully rebranded, redistributable product — fork, get it building cleanly, swap identifiers and assets, and produce signed installers ready to ship. Recent example: a native Windows VPN client rebuilt and rebranded end-to-end.</p>
               <div class="chips">
                 <span class="chip">C++</span>
                 <span class="chip">.NET</span>
                 <span class="chip">MSI Installer</span>
+                <span class="chip">Code Signing</span>
+                <span class="chip">Build Pipelines</span>
               </div>
             </div>
           </article>
 
           <article class="card project reveal">
-            <div class="project-cover" style="--c1:#10b981;--c2:#06b6d4;">
-              <span class="project-emoji">🛰️</span>
+            <div class="project-cover" style="--c1:#fb923c;--c2:#b91c1c;">
+              <span class="project-emoji">🍲</span>
             </div>
             <div class="project-body">
-              <h3>Arduino RTK GPS Calculator</h3>
-              <p class="muted small">High-precision distance calculations on Arduino with the BigNumber library, ported from a PHP reference.</p>
+              <h3>Resep Nusantara — Indonesian Recipes App</h3>
+              <p class="muted small">Native Android app for authentic Indonesian cooking recipes — RESTful API plus a local-Excel-file fallback as the data source for offline recipe browsing.</p>
               <div class="chips">
-                <span class="chip">Arduino</span>
-                <span class="chip">GPS</span>
-                <span class="chip">C/C++</span>
+                <span class="chip">Android</span>
+                <span class="chip">Java</span>
+                <span class="chip">Gradle</span>
+                <span class="chip">RESTful API</span>
               </div>
             </div>
           </article>

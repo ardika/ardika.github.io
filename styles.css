@@ -380,6 +380,21 @@ button {
   background-clip: text;
   color: transparent;
 }
+.typing-text {
+  display: inline;
+  white-space: nowrap;
+}
+.type-cursor {
+  display: inline-block;
+  width: 4px;
+  height: 0.8em;
+  background: var(--accent-2);
+  vertical-align: -4%;
+  margin: 0 4px 0 6px;
+  border-radius: 1px;
+  animation: blink 1s steps(2) infinite;
+  box-shadow: 0 0 12px color-mix(in oklab, var(--accent-2) 50%, transparent);
+}
 
 .hero-sub {
   font-size: clamp(1rem, 1.4vw, 1.18rem);

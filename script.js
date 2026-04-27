@@ -44,6 +44,66 @@ navLinks.addEventListener('click', (e) => {
   }
 });
 
+// Hero typing effect — rotates phrases describing what ardi builds
+const typingEl = document.querySelector('.hero-title .typing-text');
+if (typingEl) {
+  const phrases = [
+    'software from PCB to product',
+    'CNC machine control software',
+    'industrial firmware end-to-end',
+    'cross-platform desktop apps',
+    'Android apps with MQTT & Mapbox',
+    'embedded systems with custom PCBs',
+    'IoT telemetry & sensor pipelines',
+    'healthcare privacy tools',
+    'enterprise security clients',
+    'bilingual web platforms',
+    'Linux desktop apps with 3D viz',
+  ];
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) {
+    typingEl.textContent = phrases[0];
+  } else {
+    let pIdx = 0;
+    let cIdx = 0;
+    let mode = 'type'; // type | hold | delete | gap
+
+    const tick = () => {
+      const phrase = phrases[pIdx];
+      if (mode === 'type') {
+        cIdx++;
+        typingEl.textContent = phrase.slice(0, cIdx);
+        if (cIdx === phrase.length) {
+          mode = 'hold';
+          setTimeout(tick, 1700);
+        } else {
+          setTimeout(tick, 55 + Math.random() * 45);
+        }
+      } else if (mode === 'hold') {
+        mode = 'delete';
+        setTimeout(tick, 0);
+      } else if (mode === 'delete') {
+        cIdx--;
+        typingEl.textContent = phrase.slice(0, cIdx);
+        if (cIdx === 0) {
+          mode = 'gap';
+          setTimeout(tick, 220);
+        } else {
+          setTimeout(tick, 28);
+        }
+      } else if (mode === 'gap') {
+        pIdx = (pIdx + 1) % phrases.length;
+        mode = 'type';
+        setTimeout(tick, 0);
+      }
+    };
+
+    typingEl.textContent = '';
+    tick();
+  }
+}
+
 // Reveal-on-scroll
 const reveals = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
