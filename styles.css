@@ -366,6 +366,7 @@ button {
   font-size: clamp(2.4rem, 6vw, 4.5rem);
   max-width: 920px;
   margin-bottom: 24px;
+  text-align: center;
 }
 
 .grad {
@@ -380,6 +381,12 @@ button {
   background-clip: text;
   color: transparent;
 }
+.typing-line {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  vertical-align: top;
+}
 .typing-text {
   display: inline;
   white-space: nowrap;
@@ -390,10 +397,10 @@ button {
   height: 0.8em;
   background: var(--accent-2);
   vertical-align: -4%;
-  margin: 0 4px 0 6px;
   border-radius: 1px;
   animation: blink 1s steps(2) infinite;
   box-shadow: 0 0 12px color-mix(in oklab, var(--accent-2) 50%, transparent);
+  flex-shrink: 0;
 }
 
 .hero-sub {

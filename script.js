@@ -49,17 +49,17 @@ const typingEl = document.querySelector('.hero-title .typing-text');
 if (typingEl) {
   const phrases = [
     'I build software from PCB to product.',
-    'Delivering impactful landing-pages.',
-    'Shipping CNC machine control software.',
-    'Crafting industrial firmware end-to-end.',
-    'Engineering Android apps with MQTT & Mapbox.',
-    'Designing embedded systems with custom PCBs.',
-    'Wiring IoT telemetry & sensor pipelines.',
-    'Securing networks across desktop & mobile.',
-    'Protecting medical privacy with ML pipelines.',
-    'Visualizing live sensor data in 3D on Linux.',
-    'Rebuilding open-source apps into branded products.',
-    'Driving cold-chain telemetry for the GCC.',
+    'Delivering impactful landing pages.',
+    'Shipping cross-platform desktop apps.',
+    'Crafting firmware that survives the real world.',
+    'Engineering Android apps that feel right.',
+    'Designing embedded systems end-to-end.',
+    'Wiring sensors to dashboards.',
+    'Building beautiful interfaces for hard problems.',
+    'Turning data into insight.',
+    'Connecting devices to the cloud.',
+    'Modernizing legacy desktop systems.',
+    'Bringing hardware to life with software.',
   ];
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
