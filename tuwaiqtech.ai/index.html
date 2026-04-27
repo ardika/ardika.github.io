@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Changelog of changes shipped across the TuwaiqTech.ai marketing site, admin app, and FastAPI backend." />
-  <title>TuwaiqTech.ai — Changelog</title>
+  <meta name="description" content="What's new on the TuwaiqTech.ai website and admin." />
+  <title>TuwaiqTech.ai — What's new</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -34,9 +34,6 @@
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
-    /* Subtle pixel-pattern background, drifting slowly. Same trick the
-     * Grid Terminal site uses — keeps the brand connection while still
-     * being a static page. */
     body::before {
       content: "";
       position: fixed;
@@ -63,7 +60,7 @@
     main {
       position: relative;
       z-index: 1;
-      max-width: 920px;
+      max-width: 880px;
       margin: 0 auto;
       padding: 64px 24px 96px;
     }
@@ -84,52 +81,49 @@
     h1 .accent { color: var(--accent); }
     .lede {
       color: var(--dim);
-      font-size: 17px;
+      font-size: 17.5px;
       max-width: 64ch;
       margin: 0 0 8px;
     }
-    .meta {
-      font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
-      font-size: 12.5px;
+    .links {
+      font-size: 14px;
       color: var(--dim);
-      margin-top: 24px;
+      margin-top: 22px;
       display: flex;
       gap: 18px;
       flex-wrap: wrap;
     }
-    .meta a {
+    .links a {
       color: var(--accent);
       text-decoration: none;
       border-bottom: 1px dashed rgba(127,234,178,0.4);
     }
-    .meta a:hover { border-bottom-color: var(--accent); }
+    .links a:hover { border-bottom-color: var(--accent); }
 
-    .stats {
+    .hero-stats {
       margin: 40px 0 56px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 12px;
     }
-    .stat {
+    .hero-stat {
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: 10px;
       padding: 18px 16px;
     }
-    .stat-num {
-      font-family: 'Geist Mono', ui-monospace, monospace;
+    .hero-stat .num {
       color: var(--accent);
-      font-size: 28px;
+      font-size: 30px;
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1;
     }
-    .stat-label {
+    .hero-stat .lbl {
       color: var(--dim);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+      font-size: 13px;
       margin-top: 8px;
+      line-height: 1.4;
     }
 
     section.chapter {
@@ -155,6 +149,7 @@
     .chapter-lede {
       color: var(--dim);
       margin: 0 0 20px;
+      font-size: 16px;
     }
     h3 {
       font-size: 17px;
@@ -171,37 +166,44 @@
       margin: 10px 0;
       color: var(--fg);
     }
-    ul li::marker {
-      color: var(--accent);
-    }
-    code, kbd {
-      font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
-      font-size: 0.88em;
-      background: rgba(127,234,178,0.10);
-      color: var(--accent);
-      padding: 1.5px 6px;
-      border-radius: 4px;
-    }
-    a { color: var(--accent-2); }
-    a:hover { color: var(--accent); }
+    ul li::marker { color: var(--accent); }
+    ul li strong { color: var(--accent-2); font-weight: 600; }
 
-    .card {
+    .pages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 18px 0 8px;
+    }
+    .page-card {
       background: var(--surface);
       border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 20px 22px;
-      margin: 16px 0;
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+    .page-card .path {
+      color: var(--accent);
+      font-family: 'Geist Mono', ui-monospace, monospace;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+    .page-card .desc {
+      color: var(--dim);
+      font-size: 13.5px;
+      margin-top: 6px;
+      line-height: 1.55;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       margin: 16px 0;
-      font-size: 14px;
+      font-size: 14.5px;
     }
     th, td {
       text-align: left;
-      padding: 10px 12px;
+      padding: 12px 14px;
       border-bottom: 1px solid var(--line);
       vertical-align: top;
     }
@@ -212,32 +214,18 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
-    td code, th code { font-size: 0.92em; }
-    table.compact td, table.compact th { padding: 8px 10px; }
 
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(127,234,178,0.14);
-      color: var(--accent);
-      border: 1px solid rgba(127,234,178,0.4);
+    code {
       font-family: 'Geist Mono', ui-monospace, monospace;
-      font-size: 11px;
-      letter-spacing: 0.06em;
+      font-size: 0.88em;
+      background: rgba(127,234,178,0.10);
+      color: var(--accent);
+      padding: 1.5px 6px;
+      border-radius: 4px;
     }
-    .pill.warn {
-      background: rgba(255,138,146,0.14);
-      color: var(--warn);
-      border-color: rgba(255,138,146,0.4);
-    }
-    .pill.muted {
-      background: rgba(140,160,194,0.10);
-      color: var(--dim);
-      border-color: rgba(140,160,194,0.30);
-    }
+
+    a { color: var(--accent-2); }
+    a:hover { color: var(--accent); }
 
     footer {
       margin-top: 72px;
@@ -255,166 +243,119 @@
 </head>
 <body>
   <main>
-    <p class="eyebrow">$ cat ./CHANGELOG.md</p>
-    <h1>TuwaiqTech.ai — what shipped this <span class="accent">work session</span>.</h1>
-    <p class="lede">A complete rebuild of the <code>/v2</code> Grid Terminal experience, six new admin CRUDs, full bilingual coverage, plus the bug-fix pile that surfaced along the way.</p>
-    <div class="meta">
-      <span>Live: <a href="https://web-rho-lyart-76.vercel.app/v2" target="_blank" rel="noopener">web-rho-lyart-76.vercel.app/v2</a></span>
+    <p class="eyebrow">What's new</p>
+    <h1>TuwaiqTech.ai got <span class="accent">a fresh face</span> and an admin you can actually edit.</h1>
+    <p class="lede">A roundup of everything that changed on the public website and the admin dashboard. Written for the people who use them, not the people who built them.</p>
+    <div class="links">
+      <span>Website: <a href="https://web-rho-lyart-76.vercel.app/v2" target="_blank" rel="noopener">web-rho-lyart-76.vercel.app/v2</a></span>
       <span>Admin: <a href="https://admin-ten-xi-50.vercel.app" target="_blank" rel="noopener">admin-ten-xi-50.vercel.app</a></span>
-      <span>API: <a href="https://api-steel-five-95.vercel.app/v1" target="_blank" rel="noopener">api-steel-five-95.vercel.app/v1</a></span>
     </div>
 
-    <div class="stats">
-      <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Vercel deploys</div></div>
-      <div class="stat"><div class="stat-num">7</div><div class="stat-label">New /v2 pages</div></div>
-      <div class="stat"><div class="stat-num">5</div><div class="stat-label">New admin CRUDs</div></div>
-      <div class="stat"><div class="stat-num">5</div><div class="stat-label">New Postgres tables</div></div>
-      <div class="stat"><div class="stat-num">8</div><div class="stat-label">New web components</div></div>
-      <div class="stat"><div class="stat-num">EN + AR</div><div class="stat-label">Bilingual</div></div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">7</div><div class="lbl">New pages on the website</div></div>
+      <div class="hero-stat"><div class="num">5</div><div class="lbl">New things to manage in admin</div></div>
+      <div class="hero-stat"><div class="num">2</div><div class="lbl">Languages, end-to-end</div></div>
     </div>
 
     <section class="chapter">
-      <h2><span class="num">01</span>Architecture refactor — Grid Terminal across all of /v2</h2>
-      <p class="chapter-lede">Lifted the floating nav and footer out of the homepage into a shared shell, then mirrored that chrome on every inner page so the site reads as one coherent product.</p>
-      <ul>
-        <li><strong>Extracted <code>V2Shell</code></strong> (<code>v2-shell.tsx</code>) — owns the floating nav, page-wide pixel pattern, scan line, and footer. Mounted from <code>/v2/layout.tsx</code> so every <code>/v2/*</code> route inherits identical chrome.</li>
-        <li><strong>Stripped inline nav/footer</strong> from <code>/v2/page.tsx</code>; the homepage body is now content-only.</li>
-        <li><strong>Built four new inner pages</strong> in Grid Terminal style: <code>/v2/services</code>, <code>/v2/about</code>, <code>/v2/case-studies</code>, <code>/v2/security</code> (later joined by <code>/v2/blog</code>, <code>/v2/faqs</code>, <code>/v2/contact</code>).</li>
-        <li><strong><code>V2InnerHero</code> + <code>V2InnerCta</code></strong> shared primitives so every inner page's hero block and bottom CTA stay visually consistent.</li>
-        <li><strong><code>V2Link</code> routing helper</strong> — uses <code>next/link</code> for <code>/v2/*</code> paths (which sit outside the i18n routing tree) and <code>next-intl</code>'s locale-aware Link for everything else. Caught a class of bugs where Grid Terminal links were 404ing as <code>/en/v2/services</code>.</li>
-        <li><strong>Wrapped the public homepage</strong> with <code>V2Shell</code> so <code>/</code>, <code>/en</code>, <code>/ar</code> get the chrome the same way <code>/v2/*</code> does — fixed a regression where the homepage navbar looked "gone" after the refactor.</li>
-        <li><strong>Removed the legacy <code>/v2/(site)/*</code></strong> re-export tree.</li>
-      </ul>
+      <h2><span class="num">01</span>The whole website now matches</h2>
+      <p class="chapter-lede">Before, only the homepage had the new "Grid Terminal" look. Click into Services or About and you'd land on the old design. That's gone — every page on the site now uses the same look and feel.</p>
+      <div class="pages-grid">
+        <div class="page-card"><div class="path">/services</div><div class="desc">Three practice areas + a live catalog of every offering you've published in the admin.</div></div>
+        <div class="page-card"><div class="path">/case-studies</div><div class="desc">Filterable grid of shipped projects, by practice.</div></div>
+        <div class="page-card"><div class="path">/security</div><div class="desc">Posture pillars, compliance, and a 14-day operations scoreboard.</div></div>
+        <div class="page-card"><div class="path">/about</div><div class="desc">How we work, by-the-numbers, and the team grid.</div></div>
+        <div class="page-card"><div class="path">/blog</div><div class="desc">Article list with category filters, plus full article pages.</div></div>
+        <div class="page-card"><div class="path">/faqs</div><div class="desc">Dedicated FAQ page (the homepage section now has its own URL).</div></div>
+        <div class="page-card"><div class="path">/contact</div><div class="desc">Form on the left, contact info + Google Maps on the right.</div></div>
+      </div>
     </section>
 
     <section class="chapter">
-      <h2><span class="num">02</span>Five new admin CRUDs</h2>
-      <p class="chapter-lede">Each one ships full-stack: Supabase migration, SQLAlchemy model, admin/public routers (with audit logging + soft delete), admin React tab, sidebar entry with bilingual labels, public web client, and rendering wired with hardcoded-translation fallback when the API is unreachable.</p>
+      <h2><span class="num">02</span>You can now edit the website from admin</h2>
+      <p class="chapter-lede">Five new sections were added to the admin sidebar. Anything you change here updates the public site on the next refresh — no developer needed.</p>
       <table>
         <thead>
-          <tr>
-            <th>Entity</th>
-            <th>Public endpoint</th>
-            <th>Admin route</th>
-            <th>Surfaces on</th>
-          </tr>
+          <tr><th>Admin section</th><th>What it controls on the website</th></tr>
         </thead>
         <tbody>
-          <tr><td><strong>Client Logos</strong></td><td><code>/v1/client-logos</code></td><td><code>/client-logos</code></td><td>Marquee on <code>/v2</code></td></tr>
-          <tr><td><strong>Testimonials</strong></td><td><code>/v1/testimonials</code></td><td><code>/testimonials</code></td><td>Wall on <code>/v2</code></td></tr>
-          <tr><td><strong>Case Studies</strong></td><td><code>/v1/case-studies</code></td><td><code>/case-studies</code></td><td><code>/v2/case-studies</code> grid</td></tr>
-          <tr><td><strong>Team Members</strong></td><td><code>/v1/team-members</code></td><td><code>/team-members</code></td><td><code>/v2/about</code> team grid</td></tr>
-          <tr><td><strong>Contact Info</strong> <span class="pill muted">singleton</span></td><td><code>/v1/contact-info</code></td><td><code>/contact-info</code></td><td><code>/v2/contact</code> page</td></tr>
+          <tr><td><strong>Client Logos</strong></td><td>The "shipping in production for" marquee on the homepage.</td></tr>
+          <tr><td><strong>Testimonials</strong></td><td>The "what people who've shipped with us say" wall on the homepage.</td></tr>
+          <tr><td><strong>Case Studies</strong></td><td>The cards on the Case Studies page (and the homepage "selected shipments" section).</td></tr>
+          <tr><td><strong>Team</strong></td><td>The team grid on the About page.</td></tr>
+          <tr><td><strong>Contact Info</strong></td><td>The headline, channels (email/phone/WhatsApp), address, hours, and map location on the Contact page.</td></tr>
         </tbody>
       </table>
-      <p>Plus extended use of existing CRUDs:</p>
+      <p>Plus the existing <strong>Services</strong>, <strong>FAQs</strong>, and <strong>Site Stats</strong> sections now drive more of the website than before — the homepage, the services page, and the about page all pull from them automatically.</p>
+    </section>
+
+    <section class="chapter">
+      <h2><span class="num">03</span>Upload images instead of pasting URLs</h2>
+      <p class="chapter-lede">Every image field in admin now has an <strong>Upload</strong> tab next to the URL field. Drop a file from your computer, see a live preview, save. Works for:</p>
       <ul>
-        <li><strong>Services</strong> drive the homepage "Three practices" stacking cards (top 3 featured, fallback to translations) and a new "service-catalog" section on <code>/v2/services</code> with category filter chips and admin-configured icons. Created <code>ServiceIcon</code> resolver mapping 21 kebab-case names → lucide components.</li>
-        <li><strong>FAQs</strong> drive both the home FAQ section AND the new <code>/v2/faqs</code> dedicated page.</li>
-        <li><strong>Site Stats</strong> surfaced as a new "track-record" section on <code>/v2/about</code>.</li>
+        <li>Client logos in the marquee</li>
+        <li>Testimonial avatars (or pick a solid colour, or auto-generate a gradient)</li>
+        <li>Team member photos (same options as testimonials)</li>
+        <li>Case study cover images</li>
+      </ul>
+      <p>If an image ever fails to load, the site quietly falls back to a clean placeholder so nothing looks broken.</p>
+    </section>
+
+    <section class="chapter">
+      <h2><span class="num">04</span>Real client logos on the homepage</h2>
+      <p>The "shipping in production for" strip used to show typed-out wordmarks. It now shows the <strong>real logos</strong> of Aramco, stc, NEOM, SABIC, SAMA, MODON, Riyad Bank, KAUST, and Tawuniya — each on a clean white card, twice the size of before, with the section heading bumped up to match.</p>
+    </section>
+
+    <section class="chapter">
+      <h2><span class="num">05</span>The new Contact page</h2>
+      <p class="chapter-lede">Visitors can now reach out without leaving the site. Two columns:</p>
+      <ul>
+        <li><strong>Left:</strong> a message form. Submissions land in the <em>Contacts</em> section of admin alongside the existing legacy ones.</li>
+        <li><strong>Right:</strong> email, phone, and WhatsApp (each one taps through on mobile), then the office address and opening hours, then an interactive Google Map showing the location.</li>
+      </ul>
+      <p>You set the email, phone, address, hours, and map coordinates from <strong>Admin → Contact Info</strong>. The map uses Google Maps and works without any setup.</p>
+    </section>
+
+    <section class="chapter">
+      <h2><span class="num">06</span>Better navigation</h2>
+      <ul>
+        <li>Three new links in the top menu: <strong>Blog</strong>, <strong>FAQs</strong>, <strong>Contact</strong>.</li>
+        <li>On a phone, the menu collapses into a <strong>hamburger button</strong> that opens a clean dropdown panel.</li>
+        <li>Footer links (Practices, Company, Contact columns) are now <strong>clickable</strong> — they used to just be plain text.</li>
+        <li>Every "Contact us" / "Open engagement" button across the site now lands on the new Contact page or opens an email — no more dead ends.</li>
       </ul>
     </section>
 
     <section class="chapter">
-      <h2><span class="num">03</span>Image upload — base64 data-URL pattern</h2>
-      <p class="chapter-lede">Four places now accept either a URL or a file upload via the same <code>URL · Upload</code> tabbed input. Files read via <code>FileReader.readAsDataURL</code> and stored directly in existing TEXT columns — no Supabase Storage setup needed.</p>
+      <h2><span class="num">07</span>Arabic language fixes</h2>
       <ul>
-        <li><strong>Client Logos</strong> — logo (≤ 256 KB)</li>
-        <li><strong>Testimonials</strong> — three-mode avatar (Solid colour swatch + brand chips · Generate gradient from brand palette · Upload image)</li>
-        <li><strong>Team Members</strong> — same three-mode avatar UX</li>
-        <li><strong>Case Studies</strong> — cover image (≤ 512 KB)</li>
-      </ul>
-      <p>Auto-fallback to typographic monogram when an image URL fails to load.</p>
-    </section>
-
-    <section class="chapter">
-      <h2><span class="num">04</span>Public client logos</h2>
-      <ul>
-        <li>Switched all 9 tiles to <strong>official wordmarks</strong> sourced from 1000logos.net (Aramco, stc, SABIC), vhv.rs (NEOM), upload.wikimedia.org (SAMA, MODON, Riyad Bank, KAUST), and seekvectorlogo.net (Tawuniya).</li>
-        <li>Doubled tile size (<code>h-14 → h-28</code>, <code>min-w 144 → 288 px</code>) on <strong>white background</strong> so brand-coloured logos render in their actual colours.</li>
-        <li>Eyebrow "shipping in production for" bumped 11 px → 18 px to match.</li>
+        <li>Arabic visitors who click around the site now <strong>stay in Arabic</strong>. Before, opening any inner page would silently flip you back to English.</li>
+        <li>The hero headline was updated to your new wording: <span dir="rtl" lang="ar" style="white-space: nowrap;">"نبني غرفة المحركات للذكاء الاصطناعي في المملكة"</span>.</li>
+        <li>Words in Arabic headlines used to look <em>stuck together</em> — the gap between every word now reads cleanly at any size.</li>
+        <li>Shell-style buttons like <code>$ start-project.sh →</code> intentionally <strong>stay in English</strong> on the Arabic site, since they're part of the brand voice.</li>
       </ul>
     </section>
 
     <section class="chapter">
-      <h2><span class="num">05</span>Contact page (<code>/v2/contact</code>)</h2>
+      <h2><span class="num">08</span>Admin sign-in</h2>
       <ul>
-        <li>Brand-new admin-managed page (heading, subheading, email, phone, WhatsApp, address, hours, lat/lng).</li>
-        <li><strong>Two-column layout</strong> matching the legacy site: form left, info+map right.</li>
-        <li><strong>Form column stretches</strong> (<code>flex-1</code> on the message field) so it bottom-aligns with the sibling column — both columns measure exactly the same on desktop.</li>
-        <li><strong>Google Maps embed</strong> via <code>maps.google.com?q=lat,lng&output=embed</code> — fully interactive, no API key, locale-aware (<code>hl=ar</code> / <code>hl=en</code>), with "$ open-in-google-maps →" deep-link.</li>
-        <li><strong>Submission form</strong> (<code>V2ContactForm</code>) with Cloudflare Turnstile. Posts to existing <code>/v1/contact</code> endpoint — submissions land in the same admin Contacts inbox as legacy ones.</li>
-        <li><strong>Hero CTAs removed</strong> on this page — primary action is the form below; duplicate CTAs would be noise.</li>
-        <li><strong>Bottom CTA points to <code>mailto:</code></strong> instead of looping back to the same page.</li>
+        <li>The login screen now has a <strong>"Remember me for 7 days"</strong> checkbox (on by default). Uncheck it on a shared computer and you'll be logged out the moment you close the browser.</li>
+        <li>The two-factor code on the admin account was reset, so on next sign-in you'll be guided through enrolling fresh in your authenticator app.</li>
       </ul>
     </section>
 
     <section class="chapter">
-      <h2><span class="num">06</span>Navigation + routing</h2>
+      <h2><span class="num">09</span>Things that used to be broken</h2>
       <ul>
-        <li>Added <strong>3 new nav items</strong>: <code>/blog</code>, <code>/faqs</code>, <code>/contact</code> (now 7 total).</li>
-        <li><strong>Mobile hamburger menu</strong> with dropdown panel, body-scroll lock when open, auto-close on navigation.</li>
-        <li><strong>Footer links clickable</strong> — restructured <code>footer.practices/company/contact</code> from string arrays to <code>{label, href}</code> objects. Email/phone become <code>mailto:</code> / <code>tel:</code>.</li>
-        <li>Renamed CTA <code>talk-to-founder.sh</code> → <code>contact-us.sh</code> everywhere.</li>
-        <li>Re-pointed all 8 <code>/contact</code> references inside <code>/v2/*</code> to <code>/v2/contact</code> so no Grid Terminal CTA bounces back to the legacy chrome page.</li>
-      </ul>
-    </section>
-
-    <section class="chapter">
-      <h2><span class="num">07</span>Internationalisation</h2>
-      <ul>
-        <li><code>/v2/layout.tsx</code> now <strong>reads <code>NEXT_LOCALE</code> cookie</strong> — Arabic users clicking nav links from <code>/ar</code> stay in Arabic. Includes <code>dir="rtl"</code> flip.</li>
-        <li><strong>Stripped <code>// </code> prefixes</strong> from all eyebrow translation strings (17 in en.json + 17 in ar.json).</li>
-        <li><strong><code>.sh</code> shell-style labels stay English</strong> in Arabic — reverted 9 distinct strings, 16 occurrences.</li>
-        <li><strong>Arabic word-spacing fix</strong> in <code>WordStagger</code>: <code>paddingInlineEnd</code> 0.28em → 0.4em + <code>letterSpacing: normal</code> on each word span so the hero's <code>tracking-[-0.035em]</code> can no longer collapse the inter-word gap.</li>
-        <li>Moved hero <code>&lt;br /&gt;</code> so <code>لـ</code> joins line 2 with the rest of the phrase instead of being stranded on line 1.</li>
-        <li>Updated Arabic hero title to <span dir="rtl" lang="ar">"نبني غرفة المحركات للذكاء الاصطناعي في المملكة"</span>.</li>
-        <li>Added bilingual translation namespaces for every new section: <code>servicesPage</code>, <code>aboutPage</code>, <code>caseStudiesPage</code>, <code>securityPage</code>, <code>faqsPage</code>, <code>blogPage</code>, <code>blogPostPage</code>, <code>contactPage</code> (with <code>.form</code> sub-block), <code>innerCta</code>, plus new nav keys.</li>
-      </ul>
-    </section>
-
-    <section class="chapter">
-      <h2><span class="num">08</span>Admin features</h2>
-      <ul>
-        <li><strong>Remember-me checkbox</strong> on admin login (defaults checked). Backend now accepts <code>remember_me: bool</code>; refresh-token cookie is a session cookie when unchecked, persists 7 days when checked. The choice is stashed in <code>sessionStorage</code> so the cookie issued at the END of the MFA flow matches the user's preference.</li>
-        <li><strong>MFA reset</strong> for <code>admin@tuwaiqtech.ai</code> — cleared <code>mfa_secret</code> + <code>mfa_enabled</code>, revoked active refresh tokens. Next login routes to <code>/mfa/setup</code> for a fresh QR + secret.</li>
-        <li>All new admin tabs added to sidebar (Client Logos, Testimonials, Case Studies, Team, Contact Info) with bilingual nav labels and Lucide icons.</li>
-      </ul>
-    </section>
-
-    <section class="chapter">
-      <h2><span class="num">09</span>Bug fixes worth remembering</h2>
-      <div class="card">
-        <h3 style="margin-top:0">Production env var had a trailing newline <span class="pill warn">prod-only</span></h3>
-        <p><code>NEXT_PUBLIC_API_URL</code> was set as <code>https://api-steel-five-95.vercel.app/v1\n</code>, so every client-side fetch hit a malformed URL and silently failed → fallback content rendered. All admin services / FAQs / stats / blog were silently broken on prod for a while. Fix: removed via <code>vercel env rm</code> and re-added with <code>printf</code> (no trailing newline) instead of <code>echo</code>.</p>
-      </div>
-      <div class="card">
-        <h3 style="margin-top:0"><code>/en/v2/...</code> 404s</h3>
-        <p>Multiple links built via <code>next-intl</code>'s locale-aware <code>Link</code> were producing <code>/en/v2/contact</code> etc., which 404'd because <code>/v2/*</code> sits outside the i18n routing tree. Fix: created <code>V2Link</code> helper that picks <code>next/link</code> for <code>/v2/*</code> destinations and <code>next-intl</code>'s Link for everything else. Swapped at every callsite that touches a <code>/v2/*</code> href.</p>
-      </div>
-      <div class="card">
-        <h3 style="margin-top:0">"Open engagement" CTA looped back to the same page</h3>
-        <p>The <code>V2InnerCta</code> button on <code>/v2/contact</code> was hardcoded to <code>/v2/contact</code>. Added optional <code>href</code> + <code>label</code> overrides so the contact page passes <code>mailto:&lt;adminEmail&gt;</code>, while every other inner page keeps the default behaviour.</p>
-      </div>
-    </section>
-
-    <section class="chapter">
-      <h2><span class="num">10</span>Tally</h2>
-      <p>Across the <code>web</code>, <code>admin</code>, and <code>api</code> apps:</p>
-      <ul>
-        <li>30+ Vercel deploys</li>
-        <li>5 new Postgres tables (<code>client_logos</code>, <code>testimonials</code>, <code>case_studies</code>, <code>contact_info</code>, <code>team_members</code>) + 1 new column on <code>testimonials</code></li>
-        <li>5 new admin tabs &amp; sidebar entries</li>
-        <li>5 new public API endpoints + extended use of 3 existing ones</li>
-        <li>7 new web pages, 8 new web components</li>
-        <li>Full EN + AR coverage end-to-end</li>
-        <li>Hardcoded-translation fallbacks everywhere so the site never breaks on a backend outage</li>
+        <li>For a stretch, anything backed by admin (services, FAQs, stats, blog posts) was silently showing placeholder copy on the public site. <strong>Fixed</strong> — the live admin content now reaches the website properly.</li>
+        <li>A few buttons used to land on a 404 page. <strong>Fixed</strong> — every menu and CTA goes where it says it does.</li>
+        <li>The bottom button on the Contact page used to loop back to the same page. <strong>Fixed</strong> — it now opens an email to your inbox.</li>
       </ul>
     </section>
 
     <footer>
-      <span>$ generated · single-session changelog</span>
-      <span>$ tuwaiqtech.ai · grid-terminal</span>
+      <span>$ what-shipped.md</span>
+      <span>$ tuwaiqtech.ai</span>
     </footer>
   </main>
 </body>
