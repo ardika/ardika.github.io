@@ -3,24 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Changelog of changes shipped across the TuwaiqTech.ai marketing site, admin app, and FastAPI backend." />
-  <title>TuwaiqTech.ai — Changelog</title>
+  <title>ardika · projects</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #060E42;
       --surface: #0C164A;
-      --surface-2: #0E1A56;
       --line: rgba(229, 241, 249, 0.12);
       --fg: #E5F1F9;
       --dim: #8CA0C2;
-      --dimmer: #3A4A70;
       --accent: #7FEAB2;
-      --accent-2: #5ED7D0;
-      --accent-3: #1B6AFF;
-      --warn: #ff8a92;
     }
     * { box-sizing: border-box; }
     html, body {
@@ -28,15 +22,9 @@
       padding: 0;
       background: var(--bg);
       color: var(--fg);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1.65;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
     }
-    /* Subtle pixel-pattern background, drifting slowly. Same trick the
-     * Grid Terminal site uses — keeps the brand connection while still
-     * being a static page. */
     body::before {
       content: "";
       position: fixed;
@@ -45,377 +33,95 @@
       z-index: 0;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Crect x='13' y='13' width='2' height='2' fill='%237FEAB2' fill-opacity='0.08'/%3E%3C/svg%3E");
       background-repeat: repeat;
-      animation: drift 48s linear infinite;
-    }
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0 0 auto 0;
-      height: 520px;
-      background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(127,234,178,0.12), transparent 60%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    @keyframes drift {
-      0%   { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(56px, 56px, 0); }
     }
     main {
       position: relative;
       z-index: 1;
-      max-width: 920px;
+      max-width: 720px;
       margin: 0 auto;
-      padding: 64px 24px 96px;
+      padding: 96px 24px 64px;
     }
     .eyebrow {
-      font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
+      font-family: 'Geist Mono', ui-monospace, monospace;
       font-size: 12px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--accent);
+      margin: 0 0 16px;
     }
     h1 {
-      font-size: clamp(36px, 5vw, 56px);
-      line-height: 1.05;
-      letter-spacing: -0.025em;
-      font-weight: 800;
-      margin: 16px 0 12px;
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+      margin: 0 0 12px;
     }
-    h1 .accent { color: var(--accent); }
     .lede {
       color: var(--dim);
-      font-size: 17px;
-      max-width: 64ch;
-      margin: 0 0 8px;
+      font-size: 16px;
+      max-width: 56ch;
+      margin: 0 0 40px;
     }
-    .meta {
-      font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
-      font-size: 12.5px;
-      color: var(--dim);
-      margin-top: 24px;
+    .projects {
       display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-    .meta a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px dashed rgba(127,234,178,0.4);
-    }
-    .meta a:hover { border-bottom-color: var(--accent); }
-
-    .stats {
-      margin: 40px 0 56px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      flex-direction: column;
       gap: 12px;
     }
-    .stat {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 18px 16px;
-    }
-    .stat-num {
-      font-family: 'Geist Mono', ui-monospace, monospace;
-      color: var(--accent);
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1;
-    }
-    .stat-label {
-      color: var(--dim);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-top: 8px;
-    }
-
-    section.chapter {
-      margin-top: 56px;
-      padding-top: 32px;
-      border-top: 1px solid var(--line);
-    }
-    section.chapter:first-of-type { border-top: 0; padding-top: 0; }
-    h2 {
-      font-size: 26px;
-      letter-spacing: -0.015em;
-      margin: 0 0 6px;
-      font-weight: 700;
-    }
-    h2 .num {
-      font-family: 'Geist Mono', ui-monospace, monospace;
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 13px;
-      margin-right: 10px;
-      letter-spacing: 0;
-    }
-    .chapter-lede {
-      color: var(--dim);
-      margin: 0 0 20px;
-    }
-    h3 {
-      font-size: 17px;
-      margin: 28px 0 8px;
-      font-weight: 600;
-    }
-    p { margin: 12px 0; }
-
-    ul {
-      padding-left: 18px;
-      margin: 12px 0;
-    }
-    ul li {
-      margin: 10px 0;
-      color: var(--fg);
-    }
-    ul li::marker {
-      color: var(--accent);
-    }
-    code, kbd {
-      font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
-      font-size: 0.88em;
-      background: rgba(127,234,178,0.10);
-      color: var(--accent);
-      padding: 1.5px 6px;
-      border-radius: 4px;
-    }
-    a { color: var(--accent-2); }
-    a:hover { color: var(--accent); }
-
     .card {
+      display: block;
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: 12px;
-      padding: 20px 22px;
-      margin: 16px 0;
+      padding: 22px 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s ease, border-color 0.25s ease,
+                  box-shadow 0.25s ease;
     }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 16px 0;
-      font-size: 14px;
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(127, 234, 178, 0.45);
+      box-shadow: 0 12px 32px -10px rgba(127, 234, 178, 0.25);
     }
-    th, td {
-      text-align: left;
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--line);
-      vertical-align: top;
-    }
-    th {
-      color: var(--dim);
-      font-weight: 600;
-      font-size: 11.5px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    td code, th code { font-size: 0.92em; }
-    table.compact td, table.compact th { padding: 8px 10px; }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(127,234,178,0.14);
-      color: var(--accent);
-      border: 1px solid rgba(127,234,178,0.4);
-      font-family: 'Geist Mono', ui-monospace, monospace;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-    }
-    .pill.warn {
-      background: rgba(255,138,146,0.14);
-      color: var(--warn);
-      border-color: rgba(255,138,146,0.4);
-    }
-    .pill.muted {
-      background: rgba(140,160,194,0.10);
-      color: var(--dim);
-      border-color: rgba(140,160,194,0.30);
-    }
-
-    footer {
-      margin-top: 72px;
-      padding-top: 24px;
-      border-top: 1px solid var(--line);
-      color: var(--dim);
-      font-size: 13px;
-      font-family: 'Geist Mono', ui-monospace, monospace;
+    .card-title {
       display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      align-items: baseline;
       gap: 12px;
+      flex-wrap: wrap;
+    }
+    .card-title .name {
+      font-family: 'Geist Mono', ui-monospace, monospace;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .card-title .arrow {
+      color: var(--accent);
+      transition: transform 0.25s ease;
+    }
+    .card:hover .arrow { transform: translateX(4px); }
+    .card-desc {
+      color: var(--dim);
+      font-size: 14.5px;
+      margin: 8px 0 0;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
   <main>
-    <p class="eyebrow">$ cat ./CHANGELOG.md</p>
-    <h1>TuwaiqTech.ai — what shipped this <span class="accent">work session</span>.</h1>
-    <p class="lede">A complete rebuild of the <code>/v2</code> Grid Terminal experience, six new admin CRUDs, full bilingual coverage, plus the bug-fix pile that surfaced along the way.</p>
-    <div class="meta">
-      <span>Live: <a href="https://web-rho-lyart-76.vercel.app/v2" target="_blank" rel="noopener">web-rho-lyart-76.vercel.app/v2</a></span>
-      <span>Admin: <a href="https://admin-ten-xi-50.vercel.app" target="_blank" rel="noopener">admin-ten-xi-50.vercel.app</a></span>
-      <span>API: <a href="https://api-steel-five-95.vercel.app/v1" target="_blank" rel="noopener">api-steel-five-95.vercel.app/v1</a></span>
+    <p class="eyebrow">$ ls ./projects</p>
+    <h1>ardika</h1>
+    <p class="lede">A small index of work I've published online. Each entry is a self-contained static page hosted on this domain.</p>
+    <div class="projects">
+      <a class="card" href="./tuwaiqtech.ai/">
+        <div class="card-title">
+          <span class="name">/tuwaiqtech.ai</span>
+          <span class="arrow">→</span>
+        </div>
+        <p class="card-desc">Single-session changelog of work shipped on the TuwaiqTech.ai marketing site, admin app, and FastAPI backend.</p>
+      </a>
     </div>
-
-    <div class="stats">
-      <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Vercel deploys</div></div>
-      <div class="stat"><div class="stat-num">7</div><div class="stat-label">New /v2 pages</div></div>
-      <div class="stat"><div class="stat-num">5</div><div class="stat-label">New admin CRUDs</div></div>
-      <div class="stat"><div class="stat-num">5</div><div class="stat-label">New Postgres tables</div></div>
-      <div class="stat"><div class="stat-num">8</div><div class="stat-label">New web components</div></div>
-      <div class="stat"><div class="stat-num">EN + AR</div><div class="stat-label">Bilingual</div></div>
-    </div>
-
-    <section class="chapter">
-      <h2><span class="num">01</span>Architecture refactor — Grid Terminal across all of /v2</h2>
-      <p class="chapter-lede">Lifted the floating nav and footer out of the homepage into a shared shell, then mirrored that chrome on every inner page so the site reads as one coherent product.</p>
-      <ul>
-        <li><strong>Extracted <code>V2Shell</code></strong> (<code>v2-shell.tsx</code>) — owns the floating nav, page-wide pixel pattern, scan line, and footer. Mounted from <code>/v2/layout.tsx</code> so every <code>/v2/*</code> route inherits identical chrome.</li>
-        <li><strong>Stripped inline nav/footer</strong> from <code>/v2/page.tsx</code>; the homepage body is now content-only.</li>
-        <li><strong>Built four new inner pages</strong> in Grid Terminal style: <code>/v2/services</code>, <code>/v2/about</code>, <code>/v2/case-studies</code>, <code>/v2/security</code> (later joined by <code>/v2/blog</code>, <code>/v2/faqs</code>, <code>/v2/contact</code>).</li>
-        <li><strong><code>V2InnerHero</code> + <code>V2InnerCta</code></strong> shared primitives so every inner page's hero block and bottom CTA stay visually consistent.</li>
-        <li><strong><code>V2Link</code> routing helper</strong> — uses <code>next/link</code> for <code>/v2/*</code> paths (which sit outside the i18n routing tree) and <code>next-intl</code>'s locale-aware Link for everything else. Caught a class of bugs where Grid Terminal links were 404ing as <code>/en/v2/services</code>.</li>
-        <li><strong>Wrapped the public homepage</strong> with <code>V2Shell</code> so <code>/</code>, <code>/en</code>, <code>/ar</code> get the chrome the same way <code>/v2/*</code> does — fixed a regression where the homepage navbar looked "gone" after the refactor.</li>
-        <li><strong>Removed the legacy <code>/v2/(site)/*</code></strong> re-export tree.</li>
-      </ul>
-    </section>
-
-    <section class="chapter">
-      <h2><span class="num">02</span>Five new admin CRUDs</h2>
-      <p class="chapter-lede">Each one ships full-stack: Supabase migration, SQLAlchemy model, admin/public routers (with audit logging + soft delete), admin React tab, sidebar entry with bilingual labels, public web client, and rendering wired with hardcoded-translation fallback when the API is unreachable.</p>
-      <table>
-        <thead>
-          <tr>
-            <th>Entity</th>
-            <th>Public endpoint</th>
-            <th>Admin route</th>
-            <th>Surfaces on</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Client Logos</strong></td><td><code>/v1/client-logos</code></td><td><code>/client-logos</code></td><td>Marquee on <code>/v2</code></td></tr>
-          <tr><td><strong>Testimonials</strong></td><td><code>/v1/testimonials</code></td><td><code>/testimonials</code></td><td>Wall on <code>/v2</code></td></tr>
-          <tr><td><strong>Case Studies</strong></td><td><code>/v1/case-studies</code></td><td><code>/case-studies</code></td><td><code>/v2/case-studies</code> grid</td></tr>
-          <tr><td><strong>Team Members</strong></td><td><code>/v1/team-members</code></td><td><code>/team-members</code></td><td><code>/v2/about</code> team grid</td></tr>
-          <tr><td><strong>Contact Info</strong> <span class="pill muted">singleton</span></td><td><code>/v1/contact-info</code></td><td><code>/contact-info</code></td><td><code>/v2/contact</code> page</td></tr>
-        </tbody>
-      </table>
-      <p>Plus extended use of existing CRUDs:</p>
-      <ul>
-        <li><strong>Services</strong> drive the homepage "Three practices" stacking cards (top 3 featured, fallback to translations) and a new "service-catalog" section on <code>/v2/services</code> with category filter chips and admin-configured icons. Created <code>ServiceIcon</code> resolver mapping 21 kebab-case names → lucide components.</li>
-        <li><strong>FAQs</strong> drive both the home FAQ section AND the new <code>/v2/faqs</code> dedicated page.</li>
-        <li><strong>Site Stats</strong> surfaced as a new "track-record" section on <code>/v2/about</code>.</li>
-      </ul>
-    </section>
-
-    <section class="chapter">
-      <h2><span class="num">03</span>Image upload — base64 data-URL pattern</h2>
-      <p class="chapter-lede">Four places now accept either a URL or a file upload via the same <code>URL · Upload</code> tabbed input. Files read via <code>FileReader.readAsDataURL</code> and stored directly in existing TEXT columns — no Supabase Storage setup needed.</p>
-      <ul>
-        <li><strong>Client Logos</strong> — logo (≤ 256 KB)</li>
-        <li><strong>Testimonials</strong> — three-mode avatar (Solid colour swatch + brand chips · Generate gradient from brand palette · Upload image)</li>
-        <li><strong>Team Members</strong> — same three-mode avatar UX</li>
-        <li><strong>Case Studies</strong> — cover image (≤ 512 KB)</li>
-      </ul>
-      <p>Auto-fallback to typographic monogram when an image URL fails to load.</p>
-    </section>
-
-    <section class="chapter">
-      <h2><span class="num">04</span>Public client logos</h2>
-      <ul>
-        <li>Switched all 9 tiles to <strong>official wordmarks</strong> sourced from 1000logos.net (Aramco, stc, SABIC), vhv.rs (NEOM), upload.wikimedia.org (SAMA, MODON, Riyad Bank, KAUST), and seekvectorlogo.net (Tawuniya).</li>
-        <li>Doubled tile size (<code>h-14 → h-28</code>, <code>min-w 144 → 288 px</code>) on <strong>white background</strong> so brand-coloured logos render in their actual colours.</li>
-        <li>Eyebrow "shipping in production for" bumped 11 px → 18 px to match.</li>
-      </ul>
-    </section>
-
-    <section class="chapter">
-      <h2><span class="num">05</span>Contact page (<code>/v2/contact</code>)</h2>
-      <ul>
-        <li>Brand-new admin-managed page (heading, subheading, email, phone, WhatsApp, address, hours, lat/lng).</li>
-        <li><strong>Two-column layout</strong> matching the legacy site: form left, info+map right.</li>
-        <li><strong>Form column stretches</strong> (<code>flex-1</code> on the message field) so it bottom-aligns with the sibling column — both columns measure exactly the same on desktop.</li>
-        <li><strong>Google Maps embed</strong> via <code>maps.google.com?q=lat,lng&output=embed</code> — fully interactive, no API key, locale-aware (<code>hl=ar</code> / <code>hl=en</code>), with "$ open-in-google-maps →" deep-link.</li>
-        <li><strong>Submission form</strong> (<code>V2ContactForm</code>) with Cloudflare Turnstile. Posts to existing <code>/v1/contact</code> endpoint — submissions land in the same admin Contacts inbox as legacy ones.</li>
-        <li><strong>Hero CTAs removed</strong> on this page — primary action is the form below; duplicate CTAs would be noise.</li>
-        <li><strong>Bottom CTA points to <code>mailto:</code></strong> instead of looping back to the same page.</li>
-      </ul>
-    </section>
-
-    <section class="chapter">
-      <h2><span class="num">06</span>Navigation + routing</h2>
-      <ul>
-        <li>Added <strong>3 new nav items</strong>: <code>/blog</code>, <code>/faqs</code>, <code>/contact</code> (now 7 total).</li>
-        <li><strong>Mobile hamburger menu</strong> with dropdown panel, body-scroll lock when open, auto-close on navigation.</li>
-        <li><strong>Footer links clickable</strong> — restructured <code>footer.practices/company/contact</code> from string arrays to <code>{label, href}</code> objects. Email/phone become <code>mailto:</code> / <code>tel:</code>.</li>
-        <li>Renamed CTA <code>talk-to-founder.sh</code> → <code>contact-us.sh</code> everywhere.</li>
-        <li>Re-pointed all 8 <code>/contact</code> references inside <code>/v2/*</code> to <code>/v2/contact</code> so no Grid Terminal CTA bounces back to the legacy chrome page.</li>
-      </ul>
-    </section>
-
-    <section class="chapter">
-      <h2><span class="num">07</span>Internationalisation</h2>
-      <ul>
-        <li><code>/v2/layout.tsx</code> now <strong>reads <code>NEXT_LOCALE</code> cookie</strong> — Arabic users clicking nav links from <code>/ar</code> stay in Arabic. Includes <code>dir="rtl"</code> flip.</li>
-        <li><strong>Stripped <code>// </code> prefixes</strong> from all eyebrow translation strings (17 in en.json + 17 in ar.json).</li>
-        <li><strong><code>.sh</code> shell-style labels stay English</strong> in Arabic — reverted 9 distinct strings, 16 occurrences.</li>
-        <li><strong>Arabic word-spacing fix</strong> in <code>WordStagger</code>: <code>paddingInlineEnd</code> 0.28em → 0.4em + <code>letterSpacing: normal</code> on each word span so the hero's <code>tracking-[-0.035em]</code> can no longer collapse the inter-word gap.</li>
-        <li>Moved hero <code>&lt;br /&gt;</code> so <code>لـ</code> joins line 2 with the rest of the phrase instead of being stranded on line 1.</li>
-        <li>Updated Arabic hero title to <span dir="rtl" lang="ar">"نبني غرفة المحركات للذكاء الاصطناعي في المملكة"</span>.</li>
-        <li>Added bilingual translation namespaces for every new section: <code>servicesPage</code>, <code>aboutPage</code>, <code>caseStudiesPage</code>, <code>securityPage</code>, <code>faqsPage</code>, <code>blogPage</code>, <code>blogPostPage</code>, <code>contactPage</code> (with <code>.form</code> sub-block), <code>innerCta</code>, plus new nav keys.</li>
-      </ul>
-    </section>
-
-    <section class="chapter">
-      <h2><span class="num">08</span>Admin features</h2>
-      <ul>
-        <li><strong>Remember-me checkbox</strong> on admin login (defaults checked). Backend now accepts <code>remember_me: bool</code>; refresh-token cookie is a session cookie when unchecked, persists 7 days when checked. The choice is stashed in <code>sessionStorage</code> so the cookie issued at the END of the MFA flow matches the user's preference.</li>
-        <li><strong>MFA reset</strong> for <code>admin@tuwaiqtech.ai</code> — cleared <code>mfa_secret</code> + <code>mfa_enabled</code>, revoked active refresh tokens. Next login routes to <code>/mfa/setup</code> for a fresh QR + secret.</li>
-        <li>All new admin tabs added to sidebar (Client Logos, Testimonials, Case Studies, Team, Contact Info) with bilingual nav labels and Lucide icons.</li>
-      </ul>
-    </section>
-
-    <section class="chapter">
-      <h2><span class="num">09</span>Bug fixes worth remembering</h2>
-      <div class="card">
-        <h3 style="margin-top:0">Production env var had a trailing newline <span class="pill warn">prod-only</span></h3>
-        <p><code>NEXT_PUBLIC_API_URL</code> was set as <code>https://api-steel-five-95.vercel.app/v1\n</code>, so every client-side fetch hit a malformed URL and silently failed → fallback content rendered. All admin services / FAQs / stats / blog were silently broken on prod for a while. Fix: removed via <code>vercel env rm</code> and re-added with <code>printf</code> (no trailing newline) instead of <code>echo</code>.</p>
-      </div>
-      <div class="card">
-        <h3 style="margin-top:0"><code>/en/v2/...</code> 404s</h3>
-        <p>Multiple links built via <code>next-intl</code>'s locale-aware <code>Link</code> were producing <code>/en/v2/contact</code> etc., which 404'd because <code>/v2/*</code> sits outside the i18n routing tree. Fix: created <code>V2Link</code> helper that picks <code>next/link</code> for <code>/v2/*</code> destinations and <code>next-intl</code>'s Link for everything else. Swapped at every callsite that touches a <code>/v2/*</code> href.</p>
-      </div>
-      <div class="card">
-        <h3 style="margin-top:0">"Open engagement" CTA looped back to the same page</h3>
-        <p>The <code>V2InnerCta</code> button on <code>/v2/contact</code> was hardcoded to <code>/v2/contact</code>. Added optional <code>href</code> + <code>label</code> overrides so the contact page passes <code>mailto:&lt;adminEmail&gt;</code>, while every other inner page keeps the default behaviour.</p>
-      </div>
-    </section>
-
-    <section class="chapter">
-      <h2><span class="num">10</span>Tally</h2>
-      <p>Across the <code>web</code>, <code>admin</code>, and <code>api</code> apps:</p>
-      <ul>
-        <li>30+ Vercel deploys</li>
-        <li>5 new Postgres tables (<code>client_logos</code>, <code>testimonials</code>, <code>case_studies</code>, <code>contact_info</code>, <code>team_members</code>) + 1 new column on <code>testimonials</code></li>
-        <li>5 new admin tabs &amp; sidebar entries</li>
-        <li>5 new public API endpoints + extended use of 3 existing ones</li>
-        <li>7 new web pages, 8 new web components</li>
-        <li>Full EN + AR coverage end-to-end</li>
-        <li>Hardcoded-translation fallbacks everywhere so the site never breaks on a backend outage</li>
-      </ul>
-    </section>
-
-    <footer>
-      <span>$ generated · single-session changelog</span>
-      <span>$ tuwaiqtech.ai · grid-terminal</span>
-    </footer>
   </main>
 </body>
 </html>

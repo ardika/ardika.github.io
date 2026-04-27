@@ -1,10 +1,12 @@
 # ardika.github.io
 
-Personal GitHub Pages site. Currently hosts a single-page changelog of work
-shipped on the [TuwaiqTech.ai](https://web-rho-lyart-76.vercel.app/v2)
-marketing site, admin app, and FastAPI backend.
+Personal GitHub Pages site. Each project lives in its own subdirectory
+and is served at `https://ardika.github.io/<project>/`.
 
-Live at: https://ardika.github.io/
+| Path                    | Live URL                                      |
+| ----------------------- | --------------------------------------------- |
+| `/tuwaiqtech.ai/`       | https://ardika.github.io/tuwaiqtech.ai/       |
 
-The site is a single static `index.html` — no build step, no framework.
-GitHub Pages serves the file from `main` automatically.
+The root (`/`) renders a tiny index that links into each project. No
+build step, no framework — GitHub Pages serves the static files from
+`main` automatically.
