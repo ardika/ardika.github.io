@@ -391,13 +391,13 @@ button {
   color: transparent;
 }
 .typing-line {
-  /* Fixed-size placeholder: never shrinks below 2 lines, capped narrow enough
-     that long phrases (e.g. "Crafting firmware that survives the real world.")
-     reliably wrap to a 2nd line on wide monitors instead of spreading wide. */
+  /* Fixed-size placeholder: reserves 3 lines of vertical space so layout
+     never reflows as phrases cycle through different lengths. Width capped
+     so long phrases reliably wrap instead of spreading wide on big monitors. */
   display: block;
   width: 100%;
   max-width: min(70vw, 720px);
-  min-height: 2.3em;
+  min-height: 3.45em;
   margin: 0 auto;
   text-align: center;
   text-wrap: balance;
