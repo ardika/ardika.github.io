@@ -372,9 +372,8 @@ button {
   align-items: center;
 }
 .hero-line {
-  display: inline-flex;
-  align-items: baseline;
-  justify-content: center;
+  display: block;
+  text-align: center;
 }
 
 .grad {
@@ -402,10 +401,10 @@ button {
   height: 0.8em;
   background: var(--accent-2);
   vertical-align: -4%;
+  margin-left: 6px;
   border-radius: 1px;
   animation: blink 1s steps(2) infinite;
   box-shadow: 0 0 12px color-mix(in oklab, var(--accent-2) 50%, transparent);
-  flex-shrink: 0;
 }
 
 .hero-sub {
