@@ -48,17 +48,18 @@ navLinks.addEventListener('click', (e) => {
 const typingEl = document.querySelector('.hero-title .typing-text');
 if (typingEl) {
   const phrases = [
-    'software from PCB to product',
-    'CNC machine control software',
-    'industrial firmware end-to-end',
-    'cross-platform desktop apps',
-    'Android apps with MQTT & Mapbox',
-    'embedded systems with custom PCBs',
-    'IoT telemetry & sensor pipelines',
-    'healthcare privacy tools',
-    'enterprise security clients',
-    'bilingual web platforms',
-    'Linux desktop apps with 3D viz',
+    'I build software from PCB to product.',
+    'Delivering impactful landing-pages.',
+    'Shipping CNC machine control software.',
+    'Crafting industrial firmware end-to-end.',
+    'Engineering Android apps with MQTT & Mapbox.',
+    'Designing embedded systems with custom PCBs.',
+    'Wiring IoT telemetry & sensor pipelines.',
+    'Securing networks across desktop & mobile.',
+    'Protecting medical privacy with ML pipelines.',
+    'Visualizing live sensor data in 3D on Linux.',
+    'Rebuilding open-source apps into branded products.',
+    'Driving cold-chain telemetry for the GCC.',
   ];
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

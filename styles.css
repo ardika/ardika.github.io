@@ -780,13 +780,8 @@ button {
 .link:hover { gap: 8px; }
 
 /* =========================
-   Testimonials
+   Testimonials — infinite horizontal marquee
    ========================= */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
 .testimonial {
   display: flex;
   flex-direction: column;
@@ -794,9 +789,10 @@ button {
   margin: 0;
 }
 .testimonial .stars {
-  color: #fbbf24;
+  color: var(--accent-2);
   font-size: 18px;
   letter-spacing: 2px;
+  font-family: var(--font-mono);
 }
 .testimonial blockquote {
   margin: 0;
@@ -806,6 +802,48 @@ button {
   color: var(--text);
 }
 .testimonial figcaption { margin-top: auto; }
+
+.marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 8px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  padding: 0 10px;
+  animation: marquee-scroll 55s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+.marquee .testimonial {
+  flex: 0 0 340px;
+  max-width: 340px;
+  min-height: 200px;
+}
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 10px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 0 24px;
+  }
+}
+@media (max-width: 720px) {
+  .marquee .testimonial { flex-basis: 280px; max-width: 280px; }
+}
 
 /* =========================
    Contact
