@@ -392,19 +392,18 @@ button {
 }
 .typing-line {
   /* Fixed-size placeholder: reserves 3 lines of vertical space.
-     Width is sized to ~20 character widths at hero font so phrases naturally
-     wrap to 2 (or sometimes 3) balanced lines via text-wrap: balance — without
-     splitting hyphenated words like "cross-platform". */
+     Width is sized to comfortably hold a 26-char line at hero font so the
+     JS-inserted line breaks are the only ones that fire. */
   display: block;
   width: 100%;
-  max-width: min(70vw, 580px);
+  max-width: min(70vw, 640px);
   min-height: 3.45em;
   margin: 0 auto;
   text-align: center;
-  text-wrap: balance;
 }
 .typing-text {
   display: inline;
+  white-space: pre-wrap;
   overflow-wrap: normal;
   word-break: keep-all;
 }
