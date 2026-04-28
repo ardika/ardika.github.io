@@ -865,9 +865,10 @@ button {
   line-height: 1;
 }
 .more-projects svg {
-  width: 14px;
-  height: 14px;
+  width: 11px;
+  height: 11px;
   color: var(--accent);
+  flex-shrink: 0;
 }
 
 /* =========================
