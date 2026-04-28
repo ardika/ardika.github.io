@@ -391,17 +391,15 @@ button {
   color: transparent;
 }
 .typing-line {
-  /* Fixed-size placeholder: reserves 3 lines of vertical space.
-     font-size: 0.8em + font-weight: 500 keeps 35-char Inter lines under
+  /* Fixed-size placeholder: reserves 2 lines of vertical space.
+     font-size: 0.75em + font-weight: 500 keeps 35-char Inter lines under
      the h1's 920px content cap, so the JS-inserted breaks are the only
      ones that fire. Also gives a nice typographic hierarchy: bold name
-     on top, lighter rotating phrase below.
-     min-height stays 3.45em (3 lines at h1 line-height) for layout
-     stability, even though most phrases now sit on 1-2 typing lines. */
+     on top, lighter rotating phrase below. */
   display: block;
   width: 100%;
   max-width: 95vw;
-  min-height: 3.45em;
+  min-height: 2.3em;
   margin: 0 auto;
   text-align: center;
   font-size: 0.75em;
