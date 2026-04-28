@@ -833,6 +833,15 @@ button {
 }
 .link:hover { gap: 8px; }
 
+.more-projects {
+  margin: 36px 0 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
 /* =========================
    Testimonials — infinite horizontal marquee
    ========================= */
