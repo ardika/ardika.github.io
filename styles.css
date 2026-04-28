@@ -392,17 +392,19 @@ button {
 }
 .typing-line {
   /* Fixed-size placeholder: reserves 3 lines of vertical space.
-     Drop to font-weight: 500 so 35-char lines fit comfortably (the h1's
-     800 weight made each char ~34px → 35 chars = 1200px, way too wide
-     for the 920px h1 cap, which forced CSS re-wrap into 3-4 visual lines).
-     The lighter weight also creates a nice typographic contrast against
-     the bold name on the line above. */
+     font-size: 0.8em + font-weight: 500 keeps 35-char Inter lines under
+     the h1's 920px content cap, so the JS-inserted breaks are the only
+     ones that fire. Also gives a nice typographic hierarchy: bold name
+     on top, lighter rotating phrase below.
+     min-height stays 3.45em (3 lines at h1 line-height) for layout
+     stability, even though most phrases now sit on 1-2 typing lines. */
   display: block;
   width: 100%;
   max-width: 95vw;
   min-height: 3.45em;
   margin: 0 auto;
   text-align: center;
+  font-size: 0.8em;
   font-weight: 500;
   letter-spacing: -0.01em;
 }
