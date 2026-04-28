@@ -73,7 +73,7 @@
         <section>
           <h2>What we built</h2>
           <p>A unified SaaS that ingests live readings from every sensor brand the customer happens to have installed, normalizes them, and serves one compliance-grade dashboard.</p>
-          <p><strong>Multi-vendor integration.</strong> The platform speaks Hanwell Pro, IceSpy, IceSpy Lite, generic single- and multi-use data loggers, and a growing list of temperature controllers — each behind its own driver. New vendors slot in as plugins. Customers don't have to rip-and-replace working hardware to become compliant.</p>
+          <p><strong>Multi-vendor integration.</strong> The platform speaks <strong>Hanwell Pro, IceSpy, AKCP, TZONE, SensLive</strong>, generic single- and multi-use data loggers, and a growing list of temperature controllers — each behind its own driver. Some vendors push live readings, some need to be polled, some only export CSVs on a schedule, and some speak <strong>custom binary protocols over raw TCP</strong> while others speak <strong>MQTT</strong> or HTTP. New vendors slot in as plugins. Customers don't have to rip-and-replace working hardware to become compliant.</p>
           <p><strong>Real-time telemetry pipeline.</strong> Every reading lands in a time-series store with millisecond timestamps and the originating sensor's metadata. Out-of-spec excursions trip alerts within seconds — not the next time someone happens to open the dashboard.</p>
           <p><strong>Audit-ready reports.</strong> SFDA / WHO / GSDP / USFDA / CGMP report templates generate automatically: date range, warehouse, sensor inventory, excursion log, signed PDFs ready to hand to an inspector.</p>
           <p><strong>Multi-warehouse, multi-tenant.</strong> A pharmaceutical distributor with thirty warehouses across Riyadh, Dammam, and Jeddah sees them all in one place. Each warehouse rolls up to its compliance officer; each tenant rolls up to Quality Horizons' operations team.</p>
@@ -81,7 +81,7 @@
 
         <section>
           <h2>Engineering work</h2>
-          <p><strong>Vendor protocol integration.</strong> Each sensor brand has its own quirks — some push, some require polling, some only export CSVs on a schedule. The ingestion layer abstracts over these so the rest of the system sees a uniform stream regardless of who manufactured the sensor.</p>
+          <p><strong>Vendor protocol integration.</strong> Each sensor brand has its own quirks. Hanwell and IceSpy ship vendor-blessed APIs; AKCP exposes SNMP; TZONE and SensLive each have their own back-end conventions; older loggers only know how to push <strong>custom binary frames over TCP</strong>; newer ones speak <strong>MQTT</strong>. The ingestion layer abstracts over all of them so the rest of the system sees a uniform stream regardless of which manufacturer shipped the sensor.</p>
           <p><strong>Time-series at scale.</strong> Continuous monitoring across hundreds of warehouses generates millions of data points per day. Storage, indexing, downsampling, and report-time aggregation are designed for this from the ground up.</p>
           <p><strong>Sensor lifecycle.</strong> Sensors fail. Batteries die. Calibration drifts. The platform tracks each sensor's health, expected battery life, and last calibration date — and surfaces all three so operations replaces hardware <em>before</em> compliance breaks, not after.</p>
           <p><strong>Deployment in KSA.</strong> Hosted to be reachable from Saudi Arabia and the GCC region, with localized timezone, language, and report-format support.</p>
@@ -99,8 +99,11 @@
             <span class="chip">Sensor telemetry</span>
             <span class="chip">Time-series DB</span>
             <span class="chip">Multi-vendor integration</span>
-            <span class="chip">Hanwell · IceSpy</span>
+            <span class="chip">Hanwell · IceSpy · AKCP</span>
+            <span class="chip">TZONE · SensLive</span>
             <span class="chip">Data loggers</span>
+            <span class="chip">Custom binary TCP</span>
+            <span class="chip">MQTT</span>
             <span class="chip">SaaS web platform</span>
             <span class="chip">Real-time alerts</span>
             <span class="chip">PDF report generation</span>
