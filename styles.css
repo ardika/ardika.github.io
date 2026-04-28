@@ -850,12 +850,16 @@ button {
   transition: gap 0.2s, color 0.2s, border-color 0.2s, background 0.2s;
 }
 .case-link:hover {
-  gap: 10px;
   color: var(--text);
   border-color: var(--accent);
   background: var(--surface);
 }
-.case-link svg { width: 12px; height: 12px; flex-shrink: 0; }
+.case-link .case-arrow {
+  display: inline-block;
+  margin-left: 2px;
+  transition: transform 0.2s;
+}
+.case-link:hover .case-arrow { transform: translateX(3px); }
 
 .more-row {
   display: flex;
