@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case study: Hermes Network 360 Guard — cross-platform security client (Windows, macOS, iOS, Android) unifying SASE, RMM, and XDR for Hermes Networks Inc., San Francisco." />
+  <meta name="theme-color" content="#0b0f1a" />
+
+  <meta property="og:title" content="Hermes Network 360 Guard — Case Study | Nurkholish Ardi F." />
+  <meta property="og:description" content="Cross-platform security client unifying SASE, RMM, and XDR across Windows, macOS, iOS, and Android — for Hermes Networks Inc." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://ardika.github.io/case-studies/hermes/" />
+  <meta property="og:image" content="https://ardika.github.io/og.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://ardika.github.io/og.svg" />
+
+  <title>Hermes Network 360 Guard — Case Study | ardi</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2338bdf8'/%3E%3Ctext x='50%25' y='62%25' text-anchor='middle' font-family='ui-monospace,monospace' font-size='42' font-weight='800' fill='%23001018'%3Ea%3C/text%3E%3Ccircle cx='48' cy='16' r='5' fill='%2334d399'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="../../" class="brand" aria-label="ardi — home">
+        <span class="brand-mark" aria-hidden="true">a</span>
+        <span class="brand-text">ardi</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../../#projects">Back to work</a>
+        <a href="../../#contact">Hire me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="case-study">
+      <div class="container">
+        <a href="../../#projects" class="case-back">← Back to selected work</a>
+        <p class="section-eyebrow" data-num="case">Case study · Enterprise security</p>
+        <h1 class="case-title">Hermes Network 360 Guard</h1>
+        <p class="case-tagline">A cross-platform security client unifying SASE, RMM, and XDR across Windows, macOS, iOS, and Android — built for Hermes Networks Inc., San Francisco.</p>
+
+        <div class="case-cover" style="--c1:#1e3a8a;--c2:#0ea5e9;">
+          <span class="case-emoji">🛡️</span>
+        </div>
+
+        <section>
+          <h2>Background</h2>
+          <p>Hermes Networks Inc. (San Francisco) sells SD-WAN and enterprise network-security products. Their <strong>360 Guard</strong> line consolidates three traditionally-separate security layers into one product: Secure Access Service Edge (SASE), Remote Monitoring &amp; Management (RMM), and Extended Detection &amp; Response (XDR).</p>
+          <p>The endpoint client needs to feel like one application — not three glued together — and it needs to work everywhere the workforce does, from corporate Windows boxes to engineers on macOS to a sales rep on a phone in the field.</p>
+        </section>
+
+        <section>
+          <h2>Scope</h2>
+          <p><strong>Desktop (Windows + macOS).</strong> Full SASE / RMM / XDR control surface. Login with username + password, MFA, and SSO via Google, Microsoft, and LinkedIn. Per-service start / stop / deactivate. Real-time connection state — IP address, DNS resolution, last VPN handshake — surfaced live in the UI.</p>
+          <p><strong>Mobile (iOS + Android).</strong> SASE-only client, focused on secure on-the-go access for field workers and remote staff.</p>
+        </section>
+
+        <section>
+          <h2>Engineering work</h2>
+          <p><strong>Unified authentication layer.</strong> One auth surface that supports username + password, MFA (TOTP and push), and three SSO providers. The user sees a single login screen; the client transparently routes credentials to whichever flow the tenant has configured.</p>
+          <p><strong>Independent service control.</strong> Each protection layer is separately licensable. The client surfaces SASE, RMM, and XDR as independent toggles without making the user reason about which Windows/macOS daemon corresponds to which capability. Underneath, the client talks to a host-resident agent that owns the actual transport.</p>
+          <p><strong>Resilient connection telemetry.</strong> IP, DNS, and handshake state remain accurate across network changes — Wi-Fi to LTE to wired — without forcing reauthentication. The status surface persists across reconnects and reflects what the agent actually sees, not what the client wished it saw.</p>
+          <p><strong>Cross-platform UI parity.</strong> Window chrome, login flow, service-control panel, and status surface match across Windows and macOS without forking the codebase. Native primitives win where they matter (system tray, autostart, certificate stores); shared C++/Qt abstractions everywhere else.</p>
+          <p><strong>Mobile-targeted SASE.</strong> The mobile clients aren't shrunken desktop apps — they're focused on the one job mobile workers need (secure tunnel, transparent reconnect, low battery impact) and skip the ops-team surface that doesn't fit a phone.</p>
+        </section>
+
+        <section>
+          <h2>Outcome</h2>
+          <p>One endpoint client across four platforms with consistent UX, full-feature parity for the desktop tier, and a streamlined SASE experience for mobile. Distributed to enterprise customers via Hermes' existing GTM motion.</p>
+        </section>
+
+        <section class="case-stack">
+          <h2>Technologies</h2>
+          <div class="chips">
+            <span class="chip">C++</span>
+            <span class="chip">.NET</span>
+            <span class="chip">C#</span>
+            <span class="chip">Windows / macOS</span>
+            <span class="chip">iOS / Android</span>
+            <span class="chip">SASE / RMM / XDR</span>
+            <span class="chip">MFA / SSO</span>
+            <span class="chip">VPN</span>
+            <span class="chip">OAuth 2.0 / OIDC</span>
+          </div>
+        </section>
+
+        <a href="../../#contact" class="btn btn-primary case-cta">Have a similar project? Let's talk
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="muted small">© <span id="year"></span> ardi — Software &amp; Embedded Developer.</p>
+      <p class="signature">/* shipping <span class="accent">bytes &amp; signals</span> from Boyolali, Indonesia */</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

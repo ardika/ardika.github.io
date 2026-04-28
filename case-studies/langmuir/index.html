@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case study: Langmuir Systems machine control software — FireControl (CrossFire CNC plasma cutting tables), BendControl (Titan 25T press brake), CureControl (Vulcan 16 powder-coat oven). Cross-platform, real-time, end-to-end." />
+  <meta name="theme-color" content="#0b0f1a" />
+
+  <meta property="og:title" content="Langmuir Systems — Case Study | Nurkholish Ardi F." />
+  <meta property="og:description" content="Cross-platform machine control software for three industrial machines: CNC plasma cutting tables, a 25-ton press brake, and a powder-coat oven." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://ardika.github.io/case-studies/langmuir/" />
+  <meta property="og:image" content="https://ardika.github.io/og.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://ardika.github.io/og.svg" />
+
+  <title>Langmuir Systems — Case Study | ardi</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2338bdf8'/%3E%3Ctext x='50%25' y='62%25' text-anchor='middle' font-family='ui-monospace,monospace' font-size='42' font-weight='800' fill='%23001018'%3Ea%3C/text%3E%3Ccircle cx='48' cy='16' r='5' fill='%2334d399'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="../../" class="brand" aria-label="ardi — home">
+        <span class="brand-mark" aria-hidden="true">a</span>
+        <span class="brand-text">ardi</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../../#projects">Back to work</a>
+        <a href="../../#contact">Hire me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="case-study">
+      <div class="container">
+        <a href="../../#projects" class="case-back">← Back to selected work</a>
+        <p class="section-eyebrow" data-num="case">Case study · Industrial control</p>
+        <h1 class="case-title">Langmuir Systems</h1>
+        <p class="case-tagline">Machine control software for three industrial machines — CNC plasma cutting, a 25-ton CNC press brake, and an industrial powder-coat oven. Cross-platform, real-time, end-to-end.</p>
+
+        <div class="case-cover" style="--c1:#f97316;--c2:#7c2d12;">
+          <span class="case-emoji">🔥</span>
+        </div>
+
+        <section>
+          <h2>The brief</h2>
+          <p>Langmuir Systems builds industrial machines for makers, fabrication shops, and small-batch manufacturers — CNC plasma cutting tables, a 25-ton CNC press brake, and an industrial powder-coat oven. Each machine needed control software that felt as engineered as the hardware: fast, reliable, cross-platform, and friendly enough that a hobbyist could pick it up without a CNC background.</p>
+          <p>Three product lines, one engineering effort.</p>
+        </section>
+
+        <section>
+          <h2>FireControl — CNC plasma cutting</h2>
+          <p>Operates the <strong>CrossFire / CrossFire PRO / XR</strong> family of plasma cutting tables on Windows and macOS. Real-time program execution with continuous and step-based jogging, live program visualization with zoom and pan, automatic torch-height compensation driven by voltage feedback, pierce-delay tuning during runs, dry-run mode for testing without plasma, on-the-fly feed-rate override, and manual nesting calculations for material optimization. Touch-screen friendly with full keyboard-shortcut parity.</p>
+          <p>Hooks cleanly into Fusion&nbsp;360 and SheetCAM for CAM workflows, and integrates with the optional LS Torch Height Controller module.</p>
+        </section>
+
+        <section>
+          <h2>BendControl — Titan 25T press brake</h2>
+          <p>Drives the Titan 25T 25-ton CNC press brake. The hardest engineering problem here is synchronizing two hydraulic rams — oil compressibility, valve hysteresis, and structural flex all conspire to throw them out of step under load. Glass-scale linear encoders feed both ram positions back to the motion controller, and the software constantly trims valve drive to keep them within <strong>±0.001″ at full load</strong>.</p>
+          <p>Conversational programming mode lets the operator enter bend parameters directly — no external CAM required. Real-time hydraulic-pressure monitoring on both cylinders, integrated touchscreen UI, and an optional 2-axis CNC backgauge for automatic material positioning.</p>
+        </section>
+
+        <section>
+          <h2>CureControl — Vulcan 16 powder-coat oven</h2>
+          <p>Powers the Vulcan 16 industrial powder-coat oven. Closed-loop PID temperature control across the full 16 ft³ chamber, custom cure profiles, and a built-in time-to-temperature calculator for batch production planning. Holds <strong>±5 °F</strong> across the entire interior; reaches 400 °F from cold in roughly 15 minutes.</p>
+        </section>
+
+        <section>
+          <h2>Engineering challenges</h2>
+          <p><strong>Real-time motion at the desktop OS layer.</strong> Plasma cutting demands sub-millisecond responses to torch-height adjustments. We pinned critical threads, built a dedicated USB protocol stack, and made host-side scheduling cheap so the OS scheduler stays out of the way.</p>
+          <p><strong>Cross-platform consistency.</strong> Feature parity between Windows and macOS without forking the codebase. Native primitives where they matter (file dialogs, system tray, autostart); shared C++/Qt abstractions everywhere else.</p>
+          <p><strong>Conversational over CAM.</strong> Press-brake operators don't want to round-trip through external CAM software for every bend. BendControl's conversational mode handles ~90% of jobs directly, with manual mode as escape hatch for the rest.</p>
+        </section>
+
+        <section>
+          <h2>Outcome</h2>
+          <p>All three machines ship with the corresponding control software included, no third-party licensing. Customer setup time is measured in single-digit minutes. The combined control suite is one of the differentiators Langmuir sells against commercial offerings that start at 4–10× the price.</p>
+        </section>
+
+        <section class="case-stack">
+          <h2>Technologies</h2>
+          <div class="chips">
+            <span class="chip">C++</span>
+            <span class="chip">Qt</span>
+            <span class="chip">Windows / macOS</span>
+            <span class="chip">USB protocols</span>
+            <span class="chip">CNC motion control</span>
+            <span class="chip">PID control</span>
+            <span class="chip">Embedded C</span>
+            <span class="chip">Touch UI</span>
+            <span class="chip">CMake</span>
+          </div>
+        </section>
+
+        <a href="../../#contact" class="btn btn-primary case-cta">Have a similar project? Let's talk
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="muted small">© <span id="year"></span> ardi — Software &amp; Embedded Developer.</p>
+      <p class="signature">/* shipping <span class="accent">bytes &amp; signals</span> from Boyolali, Indonesia */</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

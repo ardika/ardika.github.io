@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" preserveAspectRatio="xMidYMid meet" role="img" aria-label="ardi — Software & Embedded Developer">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b18"/>
+      <stop offset="100%" stop-color="#0c1325"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M 56 0 L 0 0 0 56" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Soft glows -->
+  <circle cx="180" cy="140" r="220" fill="#38bdf8" opacity="0.08"/>
+  <circle cx="1040" cy="520" r="240" fill="#fbbf24" opacity="0.06"/>
+
+  <!-- Brand mark -->
+  <g transform="translate(80, 80)">
+    <rect width="80" height="80" rx="18" fill="#38bdf8"/>
+    <text x="40" y="60" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, monospace" font-size="56" font-weight="800" fill="#001018">a</text>
+    <circle cx="64" cy="20" r="7" fill="#34d399"/>
+  </g>
+
+  <!-- Status pill -->
+  <g transform="translate(190, 100)">
+    <rect width="420" height="40" rx="20" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)"/>
+    <circle cx="22" cy="20" r="5" fill="#34d399"/>
+    <text x="40" y="26" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#a3b1c4">Top Rated Plus · 100% Job Success · 5.0/28 reviews</text>
+  </g>
+
+  <!-- Title -->
+  <text x="80" y="290" font-family="Inter, system-ui, sans-serif" font-size="74" font-weight="800" letter-spacing="-2">
+    <tspan fill="#e8eef7">Hi, I'm </tspan><tspan fill="url(#accent)">Nurkholish Ardi F.</tspan>
+  </text>
+
+  <!-- Rotating-phrase placeholder -->
+  <text x="80" y="372" font-family="Inter, system-ui, sans-serif" font-size="42" font-weight="500" fill="url(#accent)" letter-spacing="-1">I build software from PCB to product.</text>
+
+  <!-- Tagline -->
+  <text x="80" y="436" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="400" fill="#93a1b8">Software &amp; Embedded Developer · 7+ years · 60+ projects · 11K+ hours</text>
+
+  <!-- Stack strip -->
+  <text x="80" y="538" font-family="ui-monospace, SFMono-Regular, monospace" font-size="17" fill="#6b7d96">
+    C · C++ · C# · Java · Kotlin · Python · Qt · Arduino · ESP32 · STM32 · React · AWS · TensorFlow
+  </text>
+
+  <!-- URL -->
+  <text x="80" y="585" font-family="ui-monospace, SFMono-Regular, monospace" font-size="20" font-weight="600" fill="#e8eef7">ardika.github.io</text>
+</svg>

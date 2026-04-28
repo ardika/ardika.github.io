@@ -833,6 +833,30 @@ button {
 }
 .link:hover { gap: 8px; }
 
+.case-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: gap 0.2s, color 0.2s, border-color 0.2s, background 0.2s;
+}
+.case-link:hover {
+  gap: 10px;
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--surface);
+}
+.case-link svg { width: 12px; height: 12px; flex-shrink: 0; }
+
 .more-row {
   display: flex;
   justify-content: center;
@@ -869,6 +893,90 @@ button {
   height: 11px;
   color: var(--accent);
   flex-shrink: 0;
+}
+
+/* =========================
+   Case study pages
+   ========================= */
+.case-study {
+  padding: 100px 0 80px;
+}
+.case-study .container { max-width: 880px; }
+.case-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+  transition: gap 0.2s;
+}
+.case-back:hover { gap: 8px; color: var(--text); }
+.case-title {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 8px 0 18px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.case-tagline {
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  color: var(--muted);
+  max-width: 760px;
+  margin-bottom: 48px;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+.case-cover {
+  height: 280px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--c1, var(--accent)), var(--c2, var(--accent-2)));
+  display: grid;
+  place-items: center;
+  margin-bottom: 56px;
+  position: relative;
+  overflow: hidden;
+}
+.case-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.2), transparent 60%);
+}
+.case-emoji {
+  font-size: 96px;
+  filter: drop-shadow(0 8px 28px rgba(0,0,0,0.4));
+  position: relative;
+  z-index: 1;
+}
+.case-study section {
+  margin: 0 0 44px;
+}
+.case-study section h2 {
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  margin-bottom: 14px;
+  color: var(--text);
+}
+.case-study section p {
+  color: var(--muted);
+  margin-bottom: 14px;
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+.case-study section p strong { color: var(--text); font-weight: 600; }
+.case-study section .chips { margin-top: 16px; }
+.case-cta {
+  margin-top: 12px;
+}
+@media (max-width: 720px) {
+  .case-cover { height: 200px; }
+  .case-emoji { font-size: 72px; }
 }
 
 /* =========================
@@ -965,6 +1073,28 @@ button {
   background: var(--surface-2);
 }
 .email-cta svg { width: 20px; height: 20px; color: var(--accent); }
+
+.booking-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 28px auto 0;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #001018;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.005em;
+  box-shadow: 0 8px 24px -6px color-mix(in oklab, var(--accent) 50%, transparent);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.booking-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px -8px color-mix(in oklab, var(--accent) 70%, transparent);
+}
+.booking-cta svg { width: 18px; height: 18px; color: #001018; }
+.contact-inner .booking-cta + .email-cta { margin-top: 14px; }
 
 
 .socials {
