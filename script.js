@@ -77,7 +77,7 @@ if (typingEl) {
     if (line) lines.push(line);
     return lines.join('\n');
   };
-  const phrases = rawPhrases.map(p => wrapAt(p, 26));
+  const phrases = rawPhrases.map(p => wrapAt(p, 35));
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduceMotion) {
