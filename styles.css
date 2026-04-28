@@ -391,19 +391,19 @@ button {
   color: transparent;
 }
 .typing-line {
-  /* Fixed-size placeholder: reserves 3 lines of vertical space AND caps
-     width narrow enough that medium/long phrases visibly wrap to 3 lines
-     of typed text (not just 2 lines + an empty 3rd row below). */
+  /* Fixed-size placeholder: reserves 3 lines of vertical space.
+     Wrapping is done in JS by inserting \n at 20-char word boundaries; the
+     container just needs to be wide enough for a 20-char line at hero font. */
   display: block;
   width: 100%;
-  max-width: min(50vw, 420px);
+  max-width: min(70vw, 540px);
   min-height: 3.45em;
   margin: 0 auto;
   text-align: center;
-  text-wrap: balance;
 }
 .typing-text {
   display: inline;
+  white-space: pre-wrap;
 }
 .type-cursor {
   display: inline-block;

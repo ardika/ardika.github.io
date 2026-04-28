@@ -47,7 +47,7 @@ navLinks.addEventListener('click', (e) => {
 // Hero typing effect — rotates phrases describing what ardi builds
 const typingEl = document.querySelector('.hero-title .typing-text');
 if (typingEl) {
-  const phrases = [
+  const rawPhrases = [
     'I build software from PCB to product.',
     'Delivering impactful landing pages.',
     'Shipping cross-platform desktop apps.',
@@ -61,6 +61,23 @@ if (typingEl) {
     'Modernizing legacy desktop systems.',
     'Bringing hardware to life with software.',
   ];
+
+  // Wrap each phrase at word boundaries with a hard 20-character-per-line limit.
+  // The \n characters get typed one-at-a-time like any other character, so the
+  // cursor "presses Enter" mid-phrase, with .typing-text using white-space: pre-wrap.
+  const wrapAt = (text, max) => {
+    const words = text.split(' ');
+    const lines = [];
+    let line = '';
+    for (const word of words) {
+      if (!line) line = word;
+      else if (line.length + 1 + word.length <= max) line += ' ' + word;
+      else { lines.push(line); line = word; }
+    }
+    if (line) lines.push(line);
+    return lines.join('\n');
+  };
+  const phrases = rawPhrases.map(p => wrapAt(p, 20));
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduceMotion) {
