@@ -833,13 +833,41 @@ button {
 }
 .link:hover { gap: 8px; }
 
+.more-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
 .more-projects {
-  margin: 36px 0 0;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
   font-family: var(--font-mono);
-  font-size: 14px;
-  color: var(--muted);
+  font-size: 13px;
   letter-spacing: 0.04em;
+  color: var(--muted);
+  transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+}
+.more-projects:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--surface-2);
+  transform: translateY(-1px);
+}
+.more-projects .more-dots {
+  color: var(--accent);
+  font-size: 18px;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+.more-projects svg {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
 }
 
 /* =========================
