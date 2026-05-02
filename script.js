@@ -60,6 +60,28 @@ if (typingEl) {
     'Connecting devices to the cloud.',
     'Modernizing legacy desktop systems.',
     'Bringing hardware to life with software.',
+    // Project-specific lines
+    'Replacing dangerous switches with Wi-Fi.',
+    'Counting shoppers with computer vision.',
+    'Tracking trucks where cellular can’t reach.',
+    'Synchronizing 25-ton hydraulic rams.',
+    'Holding 400°F to within five degrees.',
+    'Cutting steel with voltage feedback.',
+    'Unifying SASE, RMM, and XDR in one client.',
+    'De-identifying medical images on-prem.',
+    'Logging IMU motion to the millisecond.',
+    'Bridging BLE devices to Android apps.',
+    'Rebranding open-source into shipped apps.',
+    'Stitching five sensor brands into one stream.',
+    'Generating compliance reports at a click.',
+    'Custom UHF telemetry for signal-void zones.',
+    // Skills + credibility
+    'Drawing PCBs in KiCAD and Eagle.',
+    'Speaking MQTT, SNMP, and raw TCP.',
+    'Porting firmware across AVR, ARM, and ESP32.',
+    'Top Rated Plus on Upwork.',
+    '11K+ hours of shipped client work.',
+    'Showing up year after year for clients.',
   ];
 
   // Greedy word-boundary wrap at a 26-char-per-line target. Joining with \n
